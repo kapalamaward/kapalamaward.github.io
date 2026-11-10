@@ -629,18 +629,18 @@
         <div class="row"><div class="r-label">Organist</div><div class="r-value">Nora Waiwaiole</div></div>
         <div class="row"><div class="r-label">Music Leader</div><div class="r-value">Thomas Chock</div></div>
         <div class="section-mark">Opening</div>
-        <div class="row"><div class="r-label">Opening Hymn</div><div class="r-value"><span class="hymn-no">No. 35</span>For the Strength of the Hills</div></div>
+        <div class="row"><div class="r-label">Opening Hymn</div><div class="r-value"><span class="hymn-no">35</span>For the Strength of the Hills</div></div>
         <div class="row"><div class="r-label">Opening Prayer</div><div class="r-value">Jennifer Viernes</div></div>
         <div class="section-mark">Sacrament</div>
-        <div class="row"><div class="r-label">Sacrament Hymn</div><div class="r-value"><span class="hymn-no">No. 172</span>In Humility, Our Savior</div></div>
+        <div class="row"><div class="r-label">Sacrament Hymn</div><div class="r-value"><span class="hymn-no">172</span>In Humility, Our Savior</div></div>
         <p class="tba" style="padding-bottom:6px;">Administration of the Sacrament</p>
         <div class="section-mark">Speakers &amp; Music</div>
         <div class="row"><div class="r-label">Speaker</div><div class="r-value">Benjamin Pale</div></div>
         <div class="row"><div class="r-label">Speaker</div><div class="r-value">Rebecca Hall</div></div>
-        <div class="row music"><div class="r-label">Music</div><div class="r-value"><span class="hymn-no">No. 95</span>Now Thank We All Our God</div></div>
+        <div class="row music"><div class="r-label">Music</div><div class="r-value"><span class="hymn-no">95</span>Now Thank We All Our God</div></div>
         <div class="row"><div class="r-label">Speaker</div><div class="r-value">Gabriel Laureano</div></div>
         <div class="section-mark">Closing</div>
-        <div class="row"><div class="r-label">Closing Hymn</div><div class="r-value"><span class="hymn-no">No. 94</span>Come, Ye Thankful People</div></div>
+        <div class="row"><div class="r-label">Closing Hymn</div><div class="r-value"><span class="hymn-no">94</span>Come, Ye Thankful People</div></div>
         <div class="row"><div class="r-label">Closing Prayer</div><div class="r-value">Kehau McKee</div></div>
       </main>
 
@@ -759,7 +759,7 @@
         var s = clean(raw);
         var m = s.match(/^(\d+)\s+(.*)$/);
         if (!m) return esc(s);
-        return '<span class="hymn-no">No. ' + esc(m[1]) + "</span>" + esc(m[2]);
+        return '<span class="hymn-no">' + esc(m[1]) + "</span>" + esc(m[2]);
       }
       function row(label, valueHTML, extraClass) {
         return (
