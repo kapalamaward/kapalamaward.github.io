@@ -497,6 +497,46 @@
         color: var(--navy-deep);
       }
 
+      /* ---------- Ward Leaders: a fixed directory below the footer,
+         in its own card so it reads as a separate section from the
+         Sunday program above. It reuses the program's section-mark
+         header and row styles; only the label column is wider, to
+         hold the longer callings, and each phone number sits under
+         the name as a small note (the same treatment as a speaker's
+         role note) and taps to call. --- */
+      .leaders-orn {
+        margin-top: 22px;
+      }
+      .leaders {
+        margin-top: 12px;
+        background: var(--paper-raised);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 16px 20px 12px;
+      }
+      .leaders .section-mark {
+        margin-top: 2px;
+        margin-bottom: 4px;
+      }
+      .leaders .row .r-label {
+        width: 192px;
+      }
+      .leaders .r-note {
+        font-size: 13.5px;
+        margin-top: 1px;
+      }
+      .leaders .r-note a {
+        color: inherit;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .leaders .r-note a:hover,
+      .leaders .r-note a:focus-visible {
+        color: var(--navy);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
       /* ---------- Phones: keep the label/value rows side by side and
          tighten the spacing throughout, so the whole program — masthead,
          card, and footer — fits on a single screen with no second page
@@ -535,6 +575,12 @@
         footer .f-orn { margin-bottom: 5px; }
         footer .newsletter { margin-top: 3px; }
         footer .newsletter a { min-height: 30px; padding: 3px 10px; }
+        .leaders-orn { margin-top: 12px; }
+        .leaders { margin-top: 8px; padding: 9px 13px 7px; border-radius: 12px; }
+        .leaders .section-mark { margin-top: 1px; margin-bottom: 2px; }
+        .leaders .row { padding: 3.5px 0; }
+        .leaders .row .r-label { width: 118px; }
+        .leaders .r-note { font-size: 12px; }
       }
       @media (max-width: 360px) {
         .program { padding-left: 11px; padding-right: 11px; }
@@ -589,9 +635,16 @@
         footer .f-orn { margin-bottom: 4px; }
         footer .newsletter { margin-top: 2px; font-size: 12.5px; }
         footer .newsletter a { min-height: 0; padding: 0; }
+        .leaders-orn { margin-top: 10px; }
+        .leaders { box-shadow: none; margin-top: 6px; padding: 9px 15px 4px; }
+        .leaders .section-mark { margin: 1px 0 2px; font-size: 10.5px; }
+        .leaders .row { padding: 2.5px 0; break-inside: avoid; page-break-inside: avoid; }
+        .leaders .row .r-label { width: 176px; font-size: 10.5px; padding-top: 2px; }
+        .leaders .row .r-value { font-size: 15.5px; }
+        .leaders .r-note { font-size: 11px; margin-top: 0; }
       }
       @media (prefers-reduced-motion: no-preference) {
-        body, .program, .special-banner, .theme-switch, .theme-switch button {
+        body, .program, .leaders, .special-banner, .theme-switch, .theme-switch button {
           transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
         }
       }
@@ -651,6 +704,27 @@
         <p class="address">622 N Judd St, Honolulu</p>
         <p class="newsletter"><a href="https://tinyurl.com/kap-news" target="_blank" rel="noopener">Ward Newsletter</a></p>
       </footer>
+
+      <!-- Ward Leaders: a fixed directory that stays the same every
+           week. It lives outside the program card on purpose — the
+           program refresh script only ever rewrites the card, so this
+           section is never touched by it. -->
+      <div class="ornament leaders-orn" aria-hidden="true"><span></span></div>
+      <section class="leaders" aria-labelledby="leadersHeading">
+        <h2 class="section-mark" id="leadersHeading">Ward Leaders</h2>
+        <div class="row"><div class="r-label">Bishop</div><div class="r-value">Ken Arima<span class="r-note"><a href="tel:+18083064909">(808) 306-4909</a></span></div></div>
+        <div class="row"><div class="r-label">1st Counselor</div><div class="r-value">Dean Davis<span class="r-note"><a href="tel:+14084215450">(408) 421-5450</a></span></div></div>
+        <div class="row"><div class="r-label">2nd Counselor</div><div class="r-value">Karl Maua&#699;i<span class="r-note"><a href="tel:+18083218615">(808) 321-8615</a></span></div></div>
+        <div class="row"><div class="r-label">Ward Clerk</div><div class="r-value">Terry Takaki<span class="r-note"><a href="tel:+18087533199">(808) 753-3199</a></span></div></div>
+        <div class="row"><div class="r-label">Executive Secretary</div><div class="r-value">James Matsuzaki<span class="r-note"><a href="tel:+18083495326">(808) 349-5326</a></span></div></div>
+        <div class="row"><div class="r-label">Elders Quorum President</div><div class="r-value">Noah Borden<span class="r-note"><a href="tel:+18087723525">(808) 772-3525</a></span></div></div>
+        <div class="row"><div class="r-label">Relief Society President</div><div class="r-value">Kristen Maua&#699;i<span class="r-note"><a href="tel:+18083527304">(808) 352-7304</a></span></div></div>
+        <div class="row"><div class="r-label">Young Women President</div><div class="r-value">Nani Fujiwara<span class="r-note"><a href="tel:+18083860101">(808) 386-0101</a></span></div></div>
+        <div class="row"><div class="r-label">Primary President</div><div class="r-value">Wendy Nagaishi<span class="r-note"><a href="tel:+18086736007">(808) 673-6007</a></span></div></div>
+        <div class="row"><div class="r-label">Sunday School President</div><div class="r-value">Zion Kennach<span class="r-note"><a href="tel:+12534668496">(253) 466-8496</a></span></div></div>
+        <div class="row"><div class="r-label">Ward Mission Leader</div><div class="r-value">Houston Komatsu<span class="r-note"><a href="tel:+18083925621">(808) 392-5621</a></span></div></div>
+        <div class="row"><div class="r-label">Ward Temple and Family History Leader</div><div class="r-value">Falakiko Saula<span class="r-note"><a href="tel:+18083812778">(808) 381-2778</a></span></div></div>
+      </section>
     </div>
 
     <script>
