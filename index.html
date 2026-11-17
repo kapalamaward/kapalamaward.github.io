@@ -427,6 +427,20 @@
         vertical-align: -1px;
         white-space: nowrap;
       }
+      .row .r-value a.hymn-link {
+        color: inherit;
+        text-decoration: none;
+      }
+      .row .r-value a.hymn-link:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-underline-offset: 3px;
+      }
+      .row .r-value a.hymn-link:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
       .row .r-note {
         display: block;
         font-family: "Public Sans", system-ui, sans-serif;
@@ -681,10 +695,10 @@
         <div class="row"><div class="r-label">Organist</div><div class="r-value">Nora Waiwaiole</div></div>
         <div class="row"><div class="r-label">Music Leader</div><div class="r-value">Thomas Chock</div></div>
         <div class="section-mark">Opening</div>
-        <div class="row"><div class="r-label">Opening Hymn</div><div class="r-value"><span class="hymn-no">19</span>We Thank Thee, O God, for a Prophet</div></div>
+        <div class="row"><div class="r-label">Opening Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/study/manual/hymns/we-thank-thee-o-god-for-a-prophet?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 19, We Thank Thee, O God, for a Prophet — lyrics on the Church website"><span class="hymn-no">19</span>We Thank Thee, O God, for a Prophet</a></div></div>
         <div class="row"><div class="r-label">Opening Prayer</div><div class="r-value">Jennifer Viernes</div></div>
         <div class="section-mark">Sacrament</div>
-        <div class="row"><div class="r-label">Sacrament Hymn</div><div class="r-value"><span class="hymn-no">172</span>In Humility, Our Savior</div></div>
+        <div class="row"><div class="r-label">Sacrament Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/study/manual/hymns/in-humility-our-savior?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 172, In Humility, Our Savior — lyrics on the Church website"><span class="hymn-no">172</span>In Humility, Our Savior</a></div></div>
         <p class="tba" style="padding-bottom:6px;">Administration of the Sacrament</p>
         <div class="section-mark">Speakers &amp; Music</div>
         <div class="row"><div class="r-label">Speaker</div><div class="r-value">Benjamin Pale</div></div>
@@ -692,7 +706,7 @@
         <div class="row music"><div class="r-label">Music</div><div class="r-value">Ward Choir &quot;Be Still My Soul&quot;</div></div>
         <div class="row"><div class="r-label">Speaker</div><div class="r-value">Gabriel Laureano</div></div>
         <div class="section-mark">Closing</div>
-        <div class="row"><div class="r-label">Closing Hymn</div><div class="r-value"><span class="hymn-no">304</span>Teach Me to Walk in the Light</div></div>
+        <div class="row"><div class="r-label">Closing Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/study/manual/hymns/teach-me-to-walk-in-the-light?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 304, Teach Me to Walk in the Light — lyrics on the Church website"><span class="hymn-no">304</span>Teach Me to Walk in the Light</a></div></div>
         <div class="row"><div class="r-label">Closing Prayer</div><div class="r-value">Kehau McKee</div></div>
       </main>
 
@@ -833,11 +847,40 @@
         return new Date(t.getFullYear(), t.getMonth(), t.getDate());
       }
 
+      // Hymns link to their lyrics on the Church website. The Church
+      // addresses each hymn by a slug of its title under its hymnbook
+      // collection: numbers 1–341 live under "hymns" (the 1985 hymnal)
+      // and numbers 1001 and up under "hymns-for-home-and-church" (the
+      // new collection). Building the address from the number + title
+      // already in the sheet means every Sunday's hymns link
+      // automatically, with no extra data to keep current. Titles the
+      // sheet writes slightly differently from the Church's (e.g.
+      // "Oh, Come, All Ye Faithful" for "O Come, All Ye Faithful")
+      // are normalised below so the slug still matches.
+      function hymnSlug(title) {
+        var t = clean(title).replace(/^[‘’'"]+/, "");
+        if (/^oh,?\s+come,?\s+all ye faithful$/i.test(t)) t = "O Come, All Ye Faithful";
+        return t
+          .toLowerCase()
+          .replace(/[‘’'"]/g, "")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+      function hymnURL(num, title) {
+        var n = parseInt(num, 10);
+        var collection = n >= 1000 ? "hymns-for-home-and-church" : "hymns";
+        return "https://www.churchofjesuschrist.org/study/manual/" + collection + "/" + hymnSlug(title) + "?lang=eng";
+      }
       function hymnHTML(raw) {
         var s = clean(raw);
         var m = s.match(/^(\d+)\s+(.*)$/);
         if (!m) return esc(s);
-        return '<span class="hymn-no">' + esc(m[1]) + "</span>" + esc(m[2]);
+        var url = hymnURL(m[1], m[2]);
+        return (
+          '<a class="hymn-link" href="' + esc(url) + '" target="_blank" rel="noopener" ' +
+          'aria-label="Hymn ' + esc(m[1]) + ", " + esc(m[2]) + ' — lyrics on the Church website">' +
+          '<span class="hymn-no">' + esc(m[1]) + "</span>" + esc(m[2]) + "</a>"
+        );
       }
       function row(label, valueHTML, extraClass) {
         return (
