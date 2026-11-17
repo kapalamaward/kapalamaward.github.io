@@ -848,15 +848,18 @@
       }
 
       // Hymns link to their lyrics on the Church website. The Church
-      // addresses each hymn by a slug of its title under its hymnbook
-      // collection: numbers 1–341 live under "hymns" (the 1985 hymnal)
-      // and numbers 1001 and up under "hymns-for-home-and-church" (the
-      // new collection). Building the address from the number + title
-      // already in the sheet means every Sunday's hymns link
-      // automatically, with no extra data to keep current. Titles the
-      // sheet writes slightly differently from the Church's (e.g.
-      // "Oh, Come, All Ye Faithful" for "O Come, All Ye Faithful")
-      // are normalised below so the slug still matches.
+      // addresses each hymn by a slug of its title: numbers 1–341
+      // (the 1985 hymnal) live under "/study/manual/hymns/", while
+      // numbers 1001 and up (the new Hymns—For Home and Church
+      // collection) live under "/music/library/hymns/" — the
+      // "/study/manual/hymns-for-home-and-church/" address for the
+      // new collection returns a 404, so it is not used. Building
+      // the address from the number + title already in the sheet
+      // means every Sunday's hymns link automatically, with no
+      // extra data to keep current. Titles the sheet writes
+      // slightly differently from the Church's (e.g. "Oh, Come, All
+      // Ye Faithful" for "O Come, All Ye Faithful") are normalised
+      // below so the slug still matches.
       function hymnSlug(title) {
         var t = clean(title).replace(/^[‘’'"]+/, "");
         if (/^oh,?\s+come,?\s+all ye faithful$/i.test(t)) t = "O Come, All Ye Faithful";
@@ -868,8 +871,10 @@
       }
       function hymnURL(num, title) {
         var n = parseInt(num, 10);
-        var collection = n >= 1000 ? "hymns-for-home-and-church" : "hymns";
-        return "https://www.churchofjesuschrist.org/study/manual/" + collection + "/" + hymnSlug(title) + "?lang=eng";
+        var base = n >= 1000
+          ? "https://www.churchofjesuschrist.org/music/library/hymns/"
+          : "https://www.churchofjesuschrist.org/study/manual/hymns/";
+        return base + hymnSlug(title) + "?lang=eng";
       }
       function hymnHTML(raw) {
         var s = clean(raw);
