@@ -694,14 +694,14 @@
         <div class="row"><div class="r-label">Conducting</div><div class="r-value">Karl Maua'i</div></div>
         <div class="row"><div class="r-label">Organist</div><div class="r-value">Ryo Oshiro</div></div>
         <div class="section-mark">Opening</div>
-        <div class="row"><div class="r-label">Opening Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/music/library/hymns/come-thou-fount-of-every-blessing?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 1001, Come, Thou Fount of Every Blessing — lyrics on the Church website"><span class="hymn-no">1001</span>Come, Thou Fount of Every Blessing</a></div></div>
+        <div class="row"><div class="r-label">Opening Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/study/music/hymns-for-home-and-church/come-thou-fount-of-every-blessing?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 1001, Come, Thou Fount of Every Blessing — lyrics on the Church website"><span class="hymn-no">1001</span>Come, Thou Fount of Every Blessing</a></div></div>
         <div class="row"><div class="r-label">Opening Prayer</div><div class="r-value">Haylie Furtado</div></div>
         <div class="section-mark">Sacrament</div>
         <div class="row"><div class="r-label">Sacrament Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/study/manual/hymns/god-our-father-hear-us-pray?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 170, God, Our Father, Hear Us Pray — lyrics on the Church website"><span class="hymn-no">170</span>God, Our Father, Hear Us Pray</a></div></div>
         <p class="tba" style="padding-bottom:6px;">Administration of the Sacrament</p>
         <div class="special-banner"><p class="sb-kicker">Special Program</p><p class="sb-title">Primary Program</p></div>
         <div class="section-mark">Closing</div>
-        <div class="row"><div class="r-label">Closing Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/music/library/hymns/i-will-walk-with-jesus?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 1004, I Will Walk with Jesus — lyrics on the Church website"><span class="hymn-no">1004</span>I Will Walk with Jesus</a></div></div>
+        <div class="row"><div class="r-label">Closing Hymn</div><div class="r-value"><a class="hymn-link" href="https://www.churchofjesuschrist.org/study/music/hymns-for-home-and-church/i-will-walk-with-jesus?lang=eng" target="_blank" rel="noopener" aria-label="Hymn 1004, I Will Walk with Jesus — lyrics on the Church website"><span class="hymn-no">1004</span>I Will Walk with Jesus</a></div></div>
         <div class="row"><div class="r-label">Closing Prayer</div><div class="r-value">Shane Papa</div></div>
       </main>
 
@@ -864,9 +864,8 @@
       // addresses each hymn by a slug of its title: numbers 1–341
       // (the 1985 hymnal) live under "/study/manual/hymns/", while
       // numbers 1001 and up (the new Hymns—For Home and Church
-      // collection) live under "/music/library/hymns/" — the
-      // "/study/manual/hymns-for-home-and-church/" address for the
-      // new collection returns a 404, so it is not used. Building
+      // collection) live under
+      // "/study/music/hymns-for-home-and-church/". Building
       // the address from the number + title already in the sheet
       // means every Sunday's hymns link automatically, with no
       // extra data to keep current. Titles the sheet writes
@@ -885,7 +884,7 @@
       function hymnURL(num, title) {
         var n = parseInt(num, 10);
         var base = n >= 1000
-          ? "https://www.churchofjesuschrist.org/music/library/hymns/"
+          ? "https://www.churchofjesuschrist.org/study/music/hymns-for-home-and-church/"
           : "https://www.churchofjesuschrist.org/study/manual/hymns/";
         return base + hymnSlug(title) + "?lang=eng";
       }
