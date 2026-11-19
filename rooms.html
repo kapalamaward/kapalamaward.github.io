@@ -377,7 +377,7 @@
         "muster": {
           label: "Emergency Evacuation",
           room: "Muster — Parking Lot, Far End",
-          where: "Leave the building by the nearest exit and gather at the far end of the parking lot. Primary muster point (1 on the map): just outside the building at the bottom-right corner of the map. Secondary muster point (2 on the map): midway down the far left side of the parking lot, at the middle of the left edge of the map — use it if the primary point can't be reached.",
+          where: "Leave the building by the nearest exit and gather at the far end of the parking lot. Primary muster point (1 on the map): just outside the building at the bottom-right corner of the map. Secondary muster point (2 on the map): midway down the far left side of the parking lot, at the middle of the left edge of the map — use it if the primary point can't be reached. To reach it from the chapel, go through the hallway behind Classrooms 111–113, cross the Cultural Hall, and follow the hallway along the back of the building straight out the back door at its end, then head up the outside of the building to the point.",
           time: "Stay together at the muster point until leaders have accounted for everyone. Do not re-enter the building."
         }
       };
@@ -399,14 +399,17 @@
         /* Muster points sit outside the building at the far end of the
            parking lot: primary (1) at the bottom-right corner of the map,
            secondary (2) midway down the far left edge. The primary route
-           leaves by the north foyer's east entry; the secondary route
-           crosses the Cultural Hall and leaves by the west side of the
-           building. */
+           leaves by the north foyer's east entry. The secondary route goes
+           through the hallway behind Classrooms 111–113, crosses the
+           Cultural Hall, joins the hallway along the back of the building
+           below the Storage room, follows it west and goes straight out
+           the back door at its end, then up the outside of the building
+           to the point — never through a wall. */
         "muster": {
           boxes: [[2340, 1388, 340, 88], [8, 694, 204, 92]],
           paths: [
             [[2244, 737], [2054, 959], [2180, 1065], [2300, 1180], [2540, 1438]],
-            [[2244, 737], [2054, 521], [1850, 422], [1537, 426], [1491, 511], [1251, 739], [762, 737], [110, 740]]
+            [[2244, 737], [2054, 521], [1850, 422], [1537, 426], [1491, 511], [1251, 739], [762, 737], [650, 1000], [500, 1150], [300, 1180], [70, 1180], [70, 740], [110, 740]]
           ],
           points: [
             { x: 2540, y: 1438, n: "1" },
