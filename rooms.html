@@ -329,7 +329,7 @@
         "yw-younger": {
           label: "Young Women · ages 12 – 13",
           room: "Classroom 113",
-          where: "From the chapel, go through the south foyer and head west past the courtyard to the classroom row on the far side. Classroom 113 is the first room in that row — the easternmost of Classrooms 111, 112, and 113 — facing the courtyard.",
+          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Classroom 113 is on that hallway — the easternmost of Classrooms 111, 112, and 113, facing the courtyard.",
           time: "Meets 10:35 – 11:00am, after Sunday School."
         },
         "yw-older": {
@@ -341,7 +341,7 @@
         "ym": {
           label: "Young Men · ages 12 – 18",
           room: "Classroom (West)",
-          where: "From the chapel, cross the south foyer and head across the courtyard into the Cultural Hall. Classroom (West) is at the far end of the hall, up by the platform.",
+          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Follow the hallway west, then step down into the Cultural Hall — Classroom (West) is at the far end of the hall, up by the platform.",
           time: "Meets 10:35 – 11:00am, after Sunday School."
         },
         "youth-ss": {
@@ -371,7 +371,7 @@
         "basic-ss": {
           label: "Basic Adult Sunday School",
           room: "Classroom (West)",
-          where: "From the chapel, cross the south foyer and head across the courtyard into the Cultural Hall. Classroom (West) is at the far end of the hall, up by the platform.",
+          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Follow the hallway west, then step down into the Cultural Hall — Classroom (West) is at the far end of the hall, up by the platform.",
           time: "Meets 10:05 – 10:30am, right after sacrament meeting."
         },
         "muster": {
@@ -383,19 +383,20 @@
       };
 
       /* Map overlay data, in the map image's own 2720 x 1480 coordinate space.
-         Each path starts in the Chapel and follows the foyers, hallways,
-         courtyard and Cultural Hall — never through a wall. */
+         Each path starts in the Chapel and follows the foyers and the north
+         and south hallways — never through a wall, and never across the
+         courtyard (its west wall has no door into the Cultural Hall). */
       var ROUTES = {
         "nursery":    { box: [876, 1214, 218, 200],  path: [[2244, 737], [2054, 959], [1632, 1069], [1501, 1180], [985, 1180], [985, 1311]] },
         "primary":    { box: [1828, 1147, 335, 266], path: [[2244, 737], [2054, 959], [1877, 1066], [1977, 1103], [1977, 1277]] },
-        "yw-younger": { box: [1300, 333, 182, 163],  path: [[2244, 737], [2054, 521], [1850, 422], [1537, 426], [1491, 422], [1390, 410]] },
+        "yw-younger": { box: [1300, 333, 182, 163],  path: [[2244, 737], [2054, 521], [2000, 470], [1504, 408], [1500, 302], [1396, 302], [1396, 348], [1390, 410]] },
         "yw-older":   { box: [1229, 67, 163, 192],   path: [[2244, 737], [2054, 521], [1850, 422], [1578, 422], [1501, 355], [1501, 306], [1316, 306], [1316, 192]] },
-        "ym":         { box: [122, 333, 272, 155],   path: [[2244, 737], [2054, 521], [1850, 422], [1537, 426], [1491, 511], [1251, 739], [762, 737], [571, 577], [571, 465], [360, 430]] },
+        "ym":         { box: [122, 333, 272, 155],   path: [[2244, 737], [2054, 521], [2000, 470], [1504, 408], [1500, 305], [950, 305], [700, 400], [430, 415], [345, 413]] },
         "youth-ss":   { box: [1428, 67, 734, 259],   path: [[2244, 737], [2054, 521], [1945, 429], [1904, 348], [1795, 192]] },
         "rs":         { box: [1428, 67, 734, 259],   path: [[2244, 737], [2054, 521], [1945, 429], [1904, 348], [1795, 192]] },
         "eq":         { box: [1822, 493, 816, 489],  path: null },
         "adult-ss":   { box: [1822, 493, 816, 489],  path: null },
-        "basic-ss":   { box: [122, 333, 272, 155],   path: [[2244, 737], [2054, 521], [1850, 422], [1537, 426], [1491, 511], [1251, 739], [762, 737], [571, 577], [571, 465], [360, 430]] },
+        "basic-ss":   { box: [122, 333, 272, 155],   path: [[2244, 737], [2054, 521], [2000, 470], [1504, 408], [1500, 305], [950, 305], [700, 400], [430, 415], [345, 413]] },
         /* Muster points sit outside the building at the far end of the
            parking lot: primary (1) at the bottom-right corner of the map,
            secondary (2) midway down the far left edge. The primary route
@@ -409,7 +410,7 @@
           boxes: [[2340, 1388, 340, 88], [8, 694, 204, 92]],
           paths: [
             [[2244, 737], [2054, 959], [2180, 1065], [2300, 1180], [2540, 1438]],
-            [[2244, 737], [2054, 521], [1850, 422], [1537, 426], [1491, 511], [1251, 739], [762, 737], [650, 1000], [500, 1150], [300, 1180], [70, 1180], [70, 740], [110, 740]]
+            [[2244, 737], [2054, 521], [2000, 470], [1504, 408], [1500, 305], [950, 305], [620, 400], [620, 1080], [442, 1180], [301, 1180], [70, 1180], [70, 740], [110, 740]]
           ],
           points: [
             { x: 2540, y: 1438, n: "1" },
