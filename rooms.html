@@ -403,13 +403,13 @@
         "primary": {
           label: "Primary · ages 3 – 11",
           room: "Primary Rooms 3–4 (Combined)",
-          where: "From the chapel, step out into the north foyer. Primary Rooms 3–4 are right there — the easternmost Primary rooms, closest to the chapel and the first ones you reach. The two rooms are opened up into one big Primary room. Rooms 1 and 2 are at the far (west) end of the foyer.",
+          where: "From the chapel, step out into the north foyer — Primary Rooms 3–4 are right there, closest to the chapel and the first ones you reach. The two rooms are opened up into one big Primary room, and Rooms 1 and 2 are at the far end of the foyer.",
           time: "Meets 10:05 – 11:00am, right after sacrament meeting."
         },
         "yw-younger": {
           label: "Young Women · ages 12 – 13",
           room: "Classroom 113",
-          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Classroom 113 is on that hallway — the easternmost of Classrooms 111, 112, and 113, facing the courtyard.",
+          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Classroom 113 is on that hallway — the first of Classrooms 111, 112, and 113 you come to, facing the courtyard.",
           time: "Meets 10:35 – 11:00am, after Sunday School."
         },
         "yw-older": {
@@ -421,7 +421,7 @@
         "ym": {
           label: "Young Men · ages 12 – 18",
           room: "Classroom Stage",
-          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Follow the hallway west, then step down into the Cultural Hall — Classroom Stage is at the far end of the hall, next to the stage.",
+          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Follow the hallway toward the Cultural Hall, then step down into it — Classroom Stage is at the far end of the hall, next to the stage.",
           time: "Meets 10:35 – 11:00am, after Sunday School."
         },
         "youth-ss": {
@@ -451,13 +451,13 @@
         "basic-ss": {
           label: "Basic Adult Sunday School",
           room: "Classroom Stage",
-          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Follow the hallway west, then step down into the Cultural Hall — Classroom Stage is at the far end of the hall, next to the stage.",
+          where: "From the chapel, go through the south foyer and up into the hallway behind Classrooms 111–113. Follow the hallway toward the Cultural Hall, then step down into it — Classroom Stage is at the far end of the hall, next to the stage.",
           time: "Meets 10:05 – 10:30am, right after sacrament meeting."
         },
         "teacher-council": {
           label: "Teacher Council",
           room: "Seminary Room (South)",
-          where: "From the chapel, step out into the south foyer and turn east. The Seminary Room (South) opens right off the south foyer, immediately east of the chapel — it's the seminary room closest to the Relief Society room.",
+          where: "From the chapel, step out into the south foyer. The Seminary Room (South) opens right off the south foyer, right beside the chapel — it's the seminary room closest to the Relief Society room.",
           time: "Meets as scheduled during the second hour — check the Sunday program for the date."
         },
         "muster": {
@@ -471,7 +471,7 @@
       /* Map overlay data, in the map image's own 2720 x 1480 coordinate space.
          Each path starts in the Chapel and follows the foyers and the north
          and south hallways — never through a wall, and never across the
-         courtyard (its west wall has no door into the Cultural Hall). */
+         courtyard (the wall between the courtyard and the Cultural Hall has no door). */
       var ROUTES = {
         "nursery":    { box: [876, 1214, 218, 200],  path: [[2244, 737], [2054, 959], [1632, 1069], [1501, 1180], [985, 1180], [985, 1311]] },
         "primary":    { box: [1828, 1147, 335, 266], path: [[2244, 737], [2054, 959], [1877, 1066], [1977, 1103], [1977, 1277]] },
@@ -488,10 +488,10 @@
            parking lot: primary (1) at the bottom-right corner of the map,
            secondary (2) at the far left edge of the map, right where the
            back hallway exits the building. The primary route leaves by
-           the north foyer's east entry. The secondary route goes through
+           the north foyer's entry closest to the chapel. The secondary route goes through
            the hallway behind Classrooms 111–113, crosses the Cultural
            Hall, joins the hallway along the back of the building below
-           the Storage room, follows it west and goes straight out the
+           the Storage room, follows it toward the back door and goes straight out the
            back door at its end — the point is right there at the far
            left edge, with no turn after exiting — never through a wall. */
         "muster": {
